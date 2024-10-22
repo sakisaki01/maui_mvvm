@@ -5,13 +5,10 @@ namespace maui_mvvm.UnitTest.Services;
 public class PoetryStorageTest :IDisposable
 {
     //在单元测试之前清理文件
-    public PoetryStorageTest() {
-        File.Delete(PoetryStorage.PoetryDbPath);
-    }
+    public PoetryStorageTest() =>File.Delete(PoetryStorage.PoetryDbPath);
     //析构函数 垃圾清理器
-    public void Dispose(){
-        File.Delete(PoetryStorage.PoetryDbPath);
-    }
+    public void Dispose() =>File.Delete(PoetryStorage.PoetryDbPath);
+ 
 
     [Fact]  //专用于xUnit
     public void IsIiitialized_Default()
