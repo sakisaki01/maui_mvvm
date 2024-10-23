@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	<EmbeddedResource Include="poetrydb.sqlite3"/>
+	  <EmbeddedResource Include="poetrydb.sqlite3">
+		  <LogicalName>poetrydb.sqlite3</LogicalName>
+	  </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

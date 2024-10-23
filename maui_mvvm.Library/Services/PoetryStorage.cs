@@ -33,7 +33,8 @@ public class PoetryStorage : IPoetryStorage
             new FileStream(PoetryDbPath, FileMode.OpenOrCreate);
         //打开资源
         await using var dbAssetStream =
-            typeof(PoetryStorage).Assembly.GetManifestResourceStream("maui_mvvm." + DbName);
+            typeof(PoetryStorage).Assembly.GetManifestResourceStream(DbName) ??
+            throw new Exception($"找不到{DbName}的资源");
         //复制文件
         await dbAssetStream.CopyToAsync(dbFileStream);
         //存储版本号
