@@ -26,6 +26,14 @@ public partial class ResultPageViewModel : ObservableObject {
     public MauiInfiniteScrollCollection<Poetry> Poetries{ get; }
 
     public ResultPageViewModel(IPoetryStorage poetryStorage) { 
+
+        //调试用
+        where = Expression.Lambda<Func<Poetry, bool>>(
+            Expression.Constant(true),
+            Expression.Parameter(typeof(Poetry), "p"));
+        
+        //
+
         Poetries = new MauiInfiniteScrollCollection<Poetry>{
             OnCanLoadMore = () =>_canLoadMore, //  true  永远能继续滚  false 就停止 
             OnLoadMore = async () => { //上面为true 就能加载内容
